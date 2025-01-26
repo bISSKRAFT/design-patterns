@@ -12,5 +12,18 @@ class ConcreteCreator extends Creator {
   }
 }
 
+class InvalidCreator extends Creator {
+  createProduct() {
+    return {
+      doStuff() {
+        console.log("not a Product");
+      },
+    };
+  }
+}
+
 const myCreator = new ConcreteCreator();
 myCreator.someOperation();
+console.log("-------------------------");
+const invalidCreator = new InvalidCreator();
+invalidCreator.someOperation();

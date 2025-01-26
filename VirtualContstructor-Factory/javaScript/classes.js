@@ -17,6 +17,9 @@ export class Creator {
 
   someOperation() {
     const product = this.createProduct();
+    if (!(product instanceof Product)) {
+      throw new Error("product has to be type of Product");
+    }
     product.doStuff();
   }
 }
