@@ -14,7 +14,7 @@ class Client {
   }
 
   doSomethingWithSofa(): void {
-    // client doesn't care with sofa variant is used
+    // client doesn't care which sofa variant is used
     // as long as the abstract interface is used
     const sofa: ISofa = this.factory.createSofa();
     sofa.sitOn();
@@ -22,7 +22,7 @@ class Client {
 }
 
 const modernFactory: AbstractFactory = new ModernFactory();
-const clientWithModern: Client = new Client(modernFactory); // initilization with modern factory
+const clientWithModern: Client = new Client(modernFactory); // initialization with modern factory
 clientWithModern.doSomethingWithSofa(); // client can use all types of sofas
 
 const victorianFactory: AbstractFactory = new VictorianFactory();
