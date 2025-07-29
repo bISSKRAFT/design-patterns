@@ -2,11 +2,11 @@ import { Car, Engine } from "./car.ts";
 
 export interface Builder {
   reset(): void;
-  setType(type: string): void;
-  setSeats(number: number): void;
-  setEngine(engine: Engine): void;
-  setTripComputer(): void;
-  setGPS(): void;
+  setType(type: string): CarBuilder;
+  setSeats(number: number): CarBuilder;
+  setEngine(engine: Engine): CarBuilder;
+  setTripComputer(): CarBuilder;
+  setGPS(): CarBuilder;
 }
 
 export class CarBuilder implements Builder {
@@ -17,24 +17,29 @@ export class CarBuilder implements Builder {
     this.car = new Car();
   }
 
-  setType(type: string) {
+  setType(type: string): CarBuilder {
     this.car.type = type;
+    return this;
   }
 
-  setSeats(number: number) {
+  setSeats(number: number): CarBuilder {
     this.car.seats = number;
+    return this;
   }
 
-  setEngine(engine: Engine) {
+  setEngine(engine: Engine): CarBuilder {
     this.car.engine = engine;
+    return this;
   }
 
-  setTripComputer(): void {
+  setTripComputer(): CarBuilder {
     this.car.tripComputer = 1;
+    return this;
   }
 
-  setGPS(): void {
+  setGPS(): CarBuilder {
     this.car.gps = false;
+    return this;
   }
 
   getResult(): Car {
