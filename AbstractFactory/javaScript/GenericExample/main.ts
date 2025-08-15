@@ -2,8 +2,9 @@ import {
   AbstractFactory,
   ModernFactory,
   VictorianFactory,
+  ModernPrototypeFactory,
 } from "./factories.ts";
-import { ISofa } from "./products.ts";
+import { ISofa, ModernPrototypeSofa } from "./products.ts";
 
 class Client {
   factory: AbstractFactory;
@@ -28,3 +29,9 @@ clientWithModern.doSomethingWithSofa(); // client can use all types of sofas
 const victorianFactory: AbstractFactory = new VictorianFactory();
 const clientWithVictorian: Client = new Client(victorianFactory);
 clientWithVictorian.doSomethingWithSofa(); // client can use all types of sofas
+
+const modernPrototypeFactory = new ModernPrototypeFactory(
+  new ModernPrototypeSofa(),
+);
+const client = new Client(modernPrototypeFactory);
+client.doSomethingWithSofa();
