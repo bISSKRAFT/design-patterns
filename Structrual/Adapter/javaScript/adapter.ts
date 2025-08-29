@@ -1,9 +1,10 @@
-import { IRoundPeg, SquarePeg } from "./pegs.ts";
+import { RoundPeg, SquarePeg } from "./pegs.ts";
 
-export class SquarePegAdapter implements IRoundPeg {
+export class SquarePegAdapter extends RoundPeg {
   peg: SquarePeg;
 
   constructor(squarePeg: SquarePeg) {
+    super(0); // you dont need roundPeg radius
     this.peg = squarePeg;
   }
 

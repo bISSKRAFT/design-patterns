@@ -1,5 +1,5 @@
 import { SquarePegAdapter } from "./adapter.ts";
-import { IRoundPeg, RoundPeg, SquarePeg } from "./pegs.ts";
+import { RoundPeg, SquarePeg } from "./pegs.ts";
 
 export class RoundHole {
   radius: number;
@@ -10,7 +10,7 @@ export class RoundHole {
   getRadius(): number {
     return this.radius;
   }
-  fits(peg: IRoundPeg): boolean {
+  fits(peg: RoundPeg): boolean {
     return peg.getRadius() >= this.radius;
   }
 }

@@ -1,8 +1,4 @@
-export interface IRoundPeg {
-  getRadius(): number;
-}
-
-export class RoundPeg implements IRoundPeg {
+export class RoundPeg {
   radius: number;
 
   constructor(radius: number) {
