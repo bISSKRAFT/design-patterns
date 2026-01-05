@@ -1,24 +1,30 @@
 import { ThirdPartyYoutubeClass, ThirdPartyYoutubeLib } from "./service.ts";
 
 export class CachedYoutubeClass implements ThirdPartyYoutubeLib {
-	service: ThirdPartyYoutubeClass;
+	service?: ThirdPartyYoutubeClass;
 
-	constructor(service: ThirdPartyYoutubeClass) {
-		this.service = service;
+	private getService(): ThirdPartyYoutubeLib {
+		if (!this.service) {
+			this.service = new ThirdPartyYoutubeClass();
+		}
+		return this.service;
 	}
 
 	listVideos(): void {
 		console.log("invoked proxy listVideos");
-		this.service.listVideos();
+		const service = this.getService();
+		service.listVideos();
 	}
 
 	getVideoinfo(id: string): void {
 		console.log(`invoked proxy getVideoInfo with id ${id}`);
-		this.service.getVideoinfo(id);
+		const service = this.getService();
+		service.getVideoinfo(id);
 	}
 
 	downloadVideo(id: string): void {
 		console.log(`invoked proxy downloadVideo with id ${id}`);
-		this.service.downloadVideo(id);
+		const service = this.getService();
+		service.downloadVideo(id);
 	}
 }

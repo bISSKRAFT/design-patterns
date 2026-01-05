@@ -13,8 +13,7 @@ class YoutubeManager {
 	}
 }
 
-const service = new ThirdPartyYoutubeClass();
-const proxy = new CachedYoutubeClass(service);
+const proxy = new CachedYoutubeClass();
 const manager = new YoutubeManager(proxy); // client
 
 manager.doWork();

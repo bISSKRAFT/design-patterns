@@ -5,6 +5,10 @@ export interface ThirdPartyYoutubeLib {
 }
 
 export class ThirdPartyYoutubeClass implements ThirdPartyYoutubeLib {
+	constructor() {
+		console.log("service object initalized");
+	}
+
 	listVideos() {
 		console.log("invoked original 'listVideos'");
 	}
